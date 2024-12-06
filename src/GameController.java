@@ -38,6 +38,8 @@ public class GameController {
             engine.initialize();
             engine.runCombat();
             engine.clear();
+        } else {
+            view.printHelp();
         }
         return true;
     }

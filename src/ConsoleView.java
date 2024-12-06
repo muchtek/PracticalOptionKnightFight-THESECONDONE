@@ -32,7 +32,7 @@ public class ConsoleView implements GameView {
 
     @Override
     public void printHelp() {
-        System.out.println(" Unsure what to do, here are some options:\n" +
+        System.out.println("Unsure what to do, here are some options:\n" +
                 "            ls or list all  - listing the knights\n" +
                 "            list active  - list the active knights knights only\n" +
                 "            show name or id - show the knight details card\n" +
@@ -52,6 +52,7 @@ public class ConsoleView implements GameView {
     public void listKnights(List<Knight> knights) {
         for(Knight knight : knights) {
             System.out.println(knight.getId() + ": " + knight.getName());
+            System.out.println();
         }
     }
 
@@ -72,20 +73,21 @@ public class ConsoleView implements GameView {
 
     @Override
     public void printBattleText(List<MOB> monsters, List<Knight> activeKnights) {
-        System.out.printf("%-27s %n \n", "Knights", "Foes");
+        System.out.printf("%-27s %s \n", "Knights", "Foes");
         if(monsters.size() < activeKnights.size()) {
             for(int i = 0; i < monsters.size(); i++) {
-                System.out.printf("%-27s %n \n", activeKnights.get(i).getName(), monsters.get(i).getName());
+                System.out.printf("%-27s %s \n", activeKnights.get(i).getName(), monsters.get(i).getName());
             }
             for(int i = monsters.size(); i < activeKnights.size(); i++) {
-                System.out.printf("%-27s\n", activeKnights.get(i).getName());
+                System.out.printf("%-27s \n", activeKnights.get(i).getName());
             }
         }
         else {
             for(int i = 0; i < activeKnights.size(); i++) {
-                System.out.printf("%-27s %n \n", activeKnights.get(i), monsters.get(i));
+                System.out.printf("%-27s %s \n", activeKnights.get(i).getName(), monsters.get(i).getName());
             }
         }
+        System.out.println();
     }
 
     @Override
