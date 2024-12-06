@@ -51,7 +51,8 @@ public abstract class GameData {
     }
 
     public List<MOB> getRandomMonsters() {
-        return getRandomMonsters(random.nextInt(activeKnights.size()));
+        int nextInt = random.nextInt(activeKnights.size() + 1);
+        return getRandomMonsters(nextInt == 0 ? 1 : nextInt);
     }
 
     public List<MOB> getRandomMonsters(int number) {

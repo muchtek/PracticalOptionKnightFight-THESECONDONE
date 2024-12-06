@@ -26,7 +26,7 @@ public class ConsoleView implements GameView {
     @Override
     public String displayMainMenu() {
         System.out.print("What would you like to do? ");
-        String userInput = in.nextLine();
+        String userInput = in.nextLine().toLowerCase();
         return userInput;
     }
 
@@ -45,7 +45,7 @@ public class ConsoleView implements GameView {
                 " Game rules: You can have four active knights. As long as they are active, they won't heal, \n" +
                 " but they can gain XP by going on adventures.\n" +
                 " When you make a knight inactive, they will heal. How many monsters can you defeat \n" +
-                " before, you have to heal?  ");
+                " before, you have to heal?\n");
     }
 
     @Override
@@ -75,10 +75,10 @@ public class ConsoleView implements GameView {
         System.out.printf("%-27s %n \n", "Knights", "Foes");
         if(monsters.size() < activeKnights.size()) {
             for(int i = 0; i < monsters.size(); i++) {
-                System.out.printf("%-27s %n \n", activeKnights.get(i), monsters.get(i));
+                System.out.printf("%-27s %n \n", activeKnights.get(i).getName(), monsters.get(i).getName());
             }
-            for(int i = monsters.size() -1; i < activeKnights.size(); i++) {
-                System.out.printf("%-27s\n", activeKnights.get(i));
+            for(int i = monsters.size(); i < activeKnights.size(); i++) {
+                System.out.printf("%-27s\n", activeKnights.get(i).getName());
             }
         }
         else {

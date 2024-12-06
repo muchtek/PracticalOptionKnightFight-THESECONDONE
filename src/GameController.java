@@ -23,16 +23,16 @@ public class GameController {
         } else if(command.equals("list active")){
             view.listKnights(data.getActiveKnights());
         } else if(command.startsWith("show")){
-            String arg = command.substring("show".length());
+            String arg = command.substring("show".length()).trim();
             view.showKnight(data.getKnight(arg));
         } else if(command.startsWith("set active")) {
-            String arg = command.substring("set active".length());
+            String arg = command.substring("set active".length()).trim();
             data.setActive(data.getKnight(arg));
         } else if(command.startsWith("remove")) {
-            String arg = command.substring("remove".length());
+            String arg = command.substring("remove".length()).trim();
             data.removeActive(data.getKnight(arg));
         } else if(command.startsWith("save")) {
-            String arg = command.substring("save".length());
+            String arg = command.substring("save".length()).trim();
             data.save(arg);
         } else if(command.equals("explore") || command.equals("adventure") || command.equals("quest")) {
             engine.initialize();

@@ -42,9 +42,9 @@ public class CSVGameData extends GameData {
         while(file.hasNextLine()) {
             Scanner line = new Scanner(file.nextLine());
             line.useDelimiter(",");
+            String nextLine = line.next().trim();
 
-
-            if(line.next().equals("MOB")){
+            if(nextLine.equals("MOB")){
                 MOB mob = new MOB(
                         line.next(),
                         line.nextInt(),
@@ -54,7 +54,7 @@ public class CSVGameData extends GameData {
                 );
                 monsters.add(mob);
 
-            } else if(line.next().equals("FORTUNE")){
+            } else if(nextLine.equals("FORTUNE")){
                 String name = line.next();
                 int hp = line.nextInt();
                 int armor = line.nextInt();
